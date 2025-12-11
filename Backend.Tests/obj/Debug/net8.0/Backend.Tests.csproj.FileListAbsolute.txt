@@ -1,0 +1,7 @@
+C:\Users\Kerk\Desktop\URL+ANALYTICS\Backend.Tests\bin\Debug\net8.0\CoverletSourceRootsMapping_Backend.Tests
+C:\Users\Kerk\Desktop\URL+ANALYTICS\Backend.Tests\obj\Debug\net8.0\Backend.Tests.csproj.AssemblyReference.cache
+C:\Users\Kerk\Desktop\URL+ANALYTICS\Backend.Tests\obj\Debug\net8.0\MvcTestingAppManifest.json
+C:\Users\Kerk\Desktop\URL+ANALYTICS\Backend.Tests\obj\Debug\net8.0\Backend.Tests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Kerk\Desktop\URL+ANALYTICS\Backend.Tests\obj\Debug\net8.0\Backend.Tests.AssemblyInfoInputs.cache
+C:\Users\Kerk\Desktop\URL+ANALYTICS\Backend.Tests\obj\Debug\net8.0\Backend.Tests.AssemblyInfo.cs
+C:\Users\Kerk\Desktop\URL+ANALYTICS\Backend.Tests\obj\Debug\net8.0\Backend.Tests.csproj.CoreCompileInputs.cache

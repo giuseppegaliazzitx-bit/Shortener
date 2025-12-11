@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@layer components {
+  .btn-press {
+    @apply transform transition duration-150 ease-out active:scale-95;
+  }
+}
