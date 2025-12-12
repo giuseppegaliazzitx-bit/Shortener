@@ -7,7 +7,8 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading ] = useState(false);
   const [error, setError] = useState(null); 
-
+  
+  const APP_BASE_URL = import.meta.env.VITE_APP_BASE_URL;
   useEffect(() => {
     const token = localStorage.getItem("authToken");
 
@@ -57,7 +58,7 @@ const LoginPage = () => {
       localStorage.setItem("authToken", data.token);
       
       //redirect to page
-      window.location.replace("http://localhost:3000/dashboard");
+      window.location.replace(`${APP_BASE_URL}/dashboard`);
 
     }catch(err){
       console.error(err);

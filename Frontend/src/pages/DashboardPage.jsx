@@ -327,7 +327,7 @@ const handleDelete = async () => {
                   {link.shortenedURL ? (
                     <div className='flex justify-between items-center'>
                       <div className='flex-col'>
-                        <Link to={link.shortenedURL} target="_blank" rel="noopener noreferrer" className="text-indigo-600 underline"> http://localhost:3000/{link.slug}</Link>
+                        <Link to={link.shortenedURL} target="_blank" rel="noopener noreferrer" className="text-indigo-600 underline"> {`${API_BASE_URL}/${link.slug}`}</Link>
                         <div className="text-sm text-gray-500">Original: {link.originalUrl}</div>
                       </div>
                       <button 
@@ -396,7 +396,7 @@ const handleDelete = async () => {
               <h2 className="text-xl font-bold mb-4">Link Analytics</h2>
               <div><Link className='hover:text-cyan-600 text-cyan-700'><strong className='text-black'>Original:</strong> {selectedLink.originalUrl}</Link></div>
               {/* Correct template literal (this was already okay) */}
-              <div><Link className='hover:text-cyan-600 text-cyan-700' to={`http://localhost:3000/${selectedLink.slug}`}><strong className='text-black'>Shortened:</strong> {`http://localhost:3000/${selectedLink.slug}`}</Link></div>
+              <div><Link className='hover:text-cyan-600 text-cyan-700' to={`${API_BASE_URL}/${selectedLink.slug}`}><strong className='text-black'>Shortened:</strong> {`http://localhost:3000/${selectedLink.slug}`}</Link></div>
 
               {/* slug */}
               <div className="flex items-center gap-3">
