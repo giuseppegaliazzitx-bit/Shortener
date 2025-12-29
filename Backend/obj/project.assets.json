@@ -3465,26 +3465,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Kerk\\.nuget\\packages\\": {}
+    "C:\\Users\\Grep\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Kerk\\Desktop\\URL+ANALYTICS\\Backend\\MyApi.csproj",
+      "projectUniqueName": "C:\\Users\\Grep\\Desktop\\ASUS\\URL+ANALYTICS\\Backend\\MyApi.csproj",
       "projectName": "MyApi",
-      "projectPath": "C:\\Users\\Kerk\\Desktop\\URL+ANALYTICS\\Backend\\MyApi.csproj",
-      "packagesPath": "C:\\Users\\Kerk\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Kerk\\Desktop\\URL+ANALYTICS\\Backend\\obj\\",
+      "projectPath": "C:\\Users\\Grep\\Desktop\\ASUS\\URL+ANALYTICS\\Backend\\MyApi.csproj",
+      "packagesPath": "C:\\Users\\Grep\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Grep\\Desktop\\ASUS\\URL+ANALYTICS\\Backend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Kerk\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Grep\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -3584,7 +3582,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.415/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.416/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

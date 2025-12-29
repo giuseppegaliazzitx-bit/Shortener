@@ -26,7 +26,7 @@ namespace MyApi.Controller
             _config = config;
         }
 
-        // POST api/auth/register
+        // POST api/auth/createAccount
         [HttpPost("createAccount")]
         public async Task<IActionResult> CreateAccount([FromBody] CreateAccountRequest request)
         {
