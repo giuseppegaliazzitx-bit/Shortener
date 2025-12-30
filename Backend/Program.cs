@@ -19,35 +19,41 @@ var builder = WebApplication.CreateBuilder(args);
 var databaseUrl = Environment.GetEnvironmentVariable("DATABASE_URL")
                   ?? builder.Configuration.GetConnectionString("DefaultConnection");
 
-if (string.IsNullOrEmpty(databaseUrl))
-{
-    throw new InvalidOperationException("Database connection string not found. Set DATABASE_URL env var or DefaultConnection in configuration.");
-}
+if (string.IsNullOrWhiteSpace(databaseUrl))
+    throw new InvalidOperationException("Database connection string not found.");
+
+databaseUrl = databaseUrl.Trim().Trim('"');
 
 string connectionString;
-if (databaseUrl.StartsWith("postgres://", StringComparison.OrdinalIgnoreCase))
+
+if (databaseUrl.StartsWith("postgres://", StringComparison.OrdinalIgnoreCase) ||
+    databaseUrl.StartsWith("postgresql://", StringComparison.OrdinalIgnoreCase))
 {
     var uri = new Uri(databaseUrl);
+
     var userInfo = uri.UserInfo.Split(':', 2);
-    var builderN = new NpgsqlConnectionStringBuilder
+    var username = userInfo.Length > 0 ? Uri.UnescapeDataString(userInfo[0]) : null;
+    var password = userInfo.Length > 1 ? Uri.UnescapeDataString(userInfo[1]) : null;
+
+    var npg = new NpgsqlConnectionStringBuilder
     {
         Host = uri.Host,
-        Port = uri.Port,
-        Username = userInfo.Length > 0 ? userInfo[0] : null,
-        Password = userInfo.Length > 1 ? userInfo[1] : null,
+        Port = uri.Port > 0 ? uri.Port : 5432,
+        Username = username,
+        Password = password,
         Database = uri.AbsolutePath.TrimStart('/'),
         SslMode = SslMode.Require,
         TrustServerCertificate = true
     };
-    connectionString = builderN.ToString();
+
+    connectionString = npg.ConnectionString;
 }
 else
 {
-    connectionString = databaseUrl;
+    connectionString = databaseUrl; // already in Host=...;Username=... format
 }
 
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseNpgsql(connectionString));
+builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(connectionString));
 
 // Controllers (pre-existing framework function that scans files for class names ending with "controller")
 builder.Services.AddControllers();
