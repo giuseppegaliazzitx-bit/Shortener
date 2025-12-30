@@ -26,7 +26,9 @@ public class AppDbContext : DbContext
             e.Property(x => x.Id).HasColumnName("id");
             e.Property(x => x.Username).HasColumnName("username");
             e.Property(x => x.Email).HasColumnName("email");
-            e.Property(x => x.PasswordHash).HasColumnName("password_hash");
+            e.Property(x => x.HashedPassword).HasColumnName("hashed_password");
+            e.Property(x => x.UserPfpUrl).HasColumnName("user_pfp_url");
+            e.Property(x => x.CreatedAt).HasColumnName("created_at");
             // add other UserModel properties here...
         });
 
@@ -36,11 +38,11 @@ public class AppDbContext : DbContext
             e.ToTable("links");
             e.HasKey(x => x.Id);
             e.Property(x => x.Id).HasColumnName("id");
-            e.Property(x => x.CreatedOn).HasColumnName("created_on");
-            e.Property(x => x.LastClickedOn).HasColumnName("last_clicked_on");
             e.Property(x => x.OriginalUrl).HasColumnName("original_url");
             e.Property(x => x.Slug).HasColumnName("slug");
             e.Property(x => x.TotalClicks).HasColumnName("total_clicks");
+            e.Property(x => x.CreatedOn).HasColumnName("created_on");
+            e.Property(x => x.LastClickedOn).HasColumnName("last_clicked_on");
             e.Property(x => x.UserId).HasColumnName("user_id");
 
             // Relationship: Link -> User (optional; requires navigation properties in models)
@@ -56,12 +58,13 @@ public class AppDbContext : DbContext
             e.ToTable("clicked_analytics");
             e.HasKey(x => x.Id);
             e.Property(x => x.Id).HasColumnName("id");
-            e.Property(x => x.LinkId).HasColumnName("link_id");
             e.Property(x => x.ClickedOn).HasColumnName("clicked_on");
-            e.Property(x => x.IpAddress).HasColumnName("ip_address");
-            e.Property(x => x.Country).HasColumnName("country");
-            e.Property(x => x.City).HasColumnName("city");
-            e.Property(x => x.UserAgent).HasColumnName("user_agent");
+            e.Property(x => x.Continent).HasColumnName("continent");
+            e.Property(x => x.CountryCode).HasColumnName("country_code");
+            e.Property(x => x.DeviceType).HasColumnName("device_type");
+            e.Property(x => x.OsName).HasColumnName("os_name");
+            e.Property(x => x.BrowserName).HasColumnName("browser_name");
+            e.Property(x => x.LinkId).HasColumnName("link_id");
             // add other ClickedAnalyticModel properties here...
 
             // Relationship: ClickedAnalytic -> Link (optional)

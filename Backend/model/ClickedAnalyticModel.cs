@@ -11,6 +11,7 @@ public class ClickedAnalyticModel
     public int Id { get; set; }
     [Required]
     public DateTime ClickedOn { get; set; } = DateTime.UtcNow;
+    
     public string? Continent { get; set; }
 
     public string? CountryCode { get; set; }
