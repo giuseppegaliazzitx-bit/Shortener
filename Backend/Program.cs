@@ -66,7 +66,10 @@ builder.Services.AddJwtAuthentication(builder.Configuration); //Jwt extension me
 builder.Services.AddAuthorization();
 
 // CORS (extension)
-builder.Services.AddFrontendCors("http://localhost:3000"); // your frontend URL
+builder.Services.AddFrontendCors(
+    "http://localhost:3000",
+    "https://shortener-zjk.onrender.com"
+); // your frontend URL
 
 var app = builder.Build();
 
