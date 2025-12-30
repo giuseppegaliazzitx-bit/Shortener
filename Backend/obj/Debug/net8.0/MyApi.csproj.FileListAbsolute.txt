@@ -186,7 +186,6 @@ C:\Users\Grep\Desktop\ASUS\URL+ANALYTICS\Backend\bin\Debug\net8.0\System.Composi
 C:\Users\Grep\Desktop\ASUS\URL+ANALYTICS\Backend\bin\Debug\net8.0\System.Composition.Runtime.dll
 C:\Users\Grep\Desktop\ASUS\URL+ANALYTICS\Backend\bin\Debug\net8.0\System.Composition.TypedParts.dll
 C:\Users\Grep\Desktop\ASUS\URL+ANALYTICS\Backend\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
-C:\Users\Grep\Desktop\ASUS\URL+ANALYTICS\Backend\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
 C:\Users\Grep\Desktop\ASUS\URL+ANALYTICS\Backend\bin\Debug\net8.0\System.Drawing.Common.dll
 C:\Users\Grep\Desktop\ASUS\URL+ANALYTICS\Backend\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\Grep\Desktop\ASUS\URL+ANALYTICS\Backend\bin\Debug\net8.0\System.Runtime.Caching.dll
