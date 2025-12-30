@@ -67,8 +67,8 @@ builder.Services.AddAuthorization();
 
 // CORS (extension)
 //builder.Services.AddFrontendCors("http://localhost:3000"); // your frontend URL
-builder.Services.AddFrontendCors("https://shortener-zjk.onrender.com"); // your frontend URL
-
+//builder.Services.AddFrontendCors("https://shortener-zjk.onrender.com"); // your frontend URL
+builder.Services.AddFrontendCors("https://shortener-zjkn.onrender.com"); // your frontend URL
 var app = builder.Build();
 
 app.UseDetection(); // wakangkanai detection middleware
