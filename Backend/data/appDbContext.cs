@@ -1,6 +1,3 @@
-// Backend/data/AppDbContext.cs
-
-// Backend/data/AppDbContext.cs
 using Microsoft.EntityFrameworkCore;
 using MyApi.Model;
 
@@ -21,60 +18,57 @@ public class AppDbContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
 
-        // Force EF to use your existing lowercase/snake_case table names in Postgres
-        modelBuilder.Entity<UserModel>().ToTable("users");
-        modelBuilder.Entity<LinkModel>().ToTable("links");
-        modelBuilder.Entity<ClickedAnalyticModel>().ToTable("clicked_analytics");
+        // Users table
+        modelBuilder.Entity<UserModel>(e =>
+        {
+            e.ToTable("users");
+            e.HasKey(x => x.Id);
+            e.Property(x => x.Id).HasColumnName("id");
+            e.Property(x => x.Username).HasColumnName("username");
+            e.Property(x => x.Email).HasColumnName("email");
+            e.Property(x => x.PasswordHash).HasColumnName("password_hash");
+            // add other UserModel properties here...
+        });
 
-        // (Optional) your relationship config can stay here too if you want
-        // modelBuilder.Entity<UserModel>()
-        //     .HasMany(u => u.Links)
-        //     .WithOne(l => l.User)
-        //     .HasForeignKey(l => l.UserId);
+        // Links table
+        modelBuilder.Entity<LinkModel>(e =>
+        {
+            e.ToTable("links");
+            e.HasKey(x => x.Id);
+            e.Property(x => x.Id).HasColumnName("id");
+            e.Property(x => x.CreatedOn).HasColumnName("created_on");
+            e.Property(x => x.LastClickedOn).HasColumnName("last_clicked_on");
+            e.Property(x => x.OriginalUrl).HasColumnName("original_url");
+            e.Property(x => x.Slug).HasColumnName("slug");
+            e.Property(x => x.TotalClicks).HasColumnName("total_clicks");
+            e.Property(x => x.UserId).HasColumnName("user_id");
 
-        // modelBuilder.Entity<LinkModel>()
-        //     .HasMany(l => l.ClickedAnalytics)
-        //     .WithOne(c => c.Link)
-        //     .HasForeignKey(c => c.LinkId);
+            // Relationship: Link -> User (optional; requires navigation properties in models)
+            e.HasOne<UserModel>()
+             .WithMany()
+             .HasForeignKey(x => x.UserId)
+             .HasConstraintName("fk_links_user_id");
+        });
+
+        // ClickedAnalytics table
+        modelBuilder.Entity<ClickedAnalyticModel>(e =>
+        {
+            e.ToTable("clicked_analytics");
+            e.HasKey(x => x.Id);
+            e.Property(x => x.Id).HasColumnName("id");
+            e.Property(x => x.LinkId).HasColumnName("link_id");
+            e.Property(x => x.ClickedOn).HasColumnName("clicked_on");
+            e.Property(x => x.IpAddress).HasColumnName("ip_address");
+            e.Property(x => x.Country).HasColumnName("country");
+            e.Property(x => x.City).HasColumnName("city");
+            e.Property(x => x.UserAgent).HasColumnName("user_agent");
+            // add other ClickedAnalyticModel properties here...
+
+            // Relationship: ClickedAnalytic -> Link (optional)
+            e.HasOne<LinkModel>()
+             .WithMany()
+             .HasForeignKey(x => x.LinkId)
+             .HasConstraintName("fk_clicked_analytics_link_id");
+        });
     }
 }
-
-
-// using Microsoft.EntityFrameworkCore;
-// using MyApi.Model; // so we can use UserModel, LinkModel, ClickedAnalyticModel
-
-// namespace MyApi.Data;
-// public class AppDbContext : DbContext
-// {
-//     // This constructor is used by ASP.NET Core's DI system
-//     public AppDbContext(DbContextOptions<AppDbContext> options)
-//         : base(options)
-//     {
-//     }
-
-//     // These represent your tables in the database
-//     public DbSet<UserModel> Users => Set<UserModel>();
-//     public DbSet<LinkModel> Links => Set<LinkModel>();
-//     public DbSet<ClickedAnalyticModel> ClickedAnalytics => Set<ClickedAnalyticModel>();
-
-// }
-//     /* 
-//     Optional: further configuration of relationships, constraints, etc.
-//     protected override void OnModelCreating(ModelBuilder modelBuilder)
-//     {
-//         base.OnModelCreating(modelBuilder);
-
-//         // Example: one User has many Links (if your models already have proper nav props,
-//         // EF can infer this, but it's nice to be explicit)
-//         modelBuilder.Entity<UserModel>()
-//             .HasMany(u => u.Links)
-//             .WithOne(l => l.User)
-//             .HasForeignKey(l => l.UserId);
-
-//         // Example: one Link has many ClickedAnalytics
-//         modelBuilder.Entity<LinkModel>()
-//             .HasMany(l => l.ClickedAnalytics)
-//             .WithOne(c => c.Link)
-//             .HasForeignKey(c => c.LinkId);
-//     }
-//     */

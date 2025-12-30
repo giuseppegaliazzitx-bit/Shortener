@@ -56,7 +56,6 @@ else
 //builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(connectionString));
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(connectionString)
-           .UseSnakeCaseNamingConvention()
 );
 
 // Controllers (pre-existing framework function that scans files for class names ending with "controller")
