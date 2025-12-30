@@ -9,6 +9,10 @@ const RedirectPage = () => {
   const [error, setError] = useState(null);
   const effectRan = useRef(false);
 
+  const apiBase = import.meta.env.VITE_API_BASE_URL; 
+// Strip the "/api" from the end so it points to the root of your backend
+const backendRoot = apiBase.replace('/api', '');
+
   useEffect(() => {
     if (!linkId) return;
 
@@ -19,7 +23,7 @@ const RedirectPage = () => {
     effectRan.current = true;
     (async () => {
       try {
-        const res = await fetch(`http://localhost:5163/${linkId}`);
+        const res = await fetch(`${backendRoot}/${linkId}`);
         const data = await res.json();
         if (!res.ok) {
           throw new Error(data.message || "Something went wrong");
