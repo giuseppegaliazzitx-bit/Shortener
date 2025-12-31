@@ -10,7 +10,7 @@ const RedirectPage = () => {
   const effectRan = useRef(false);
 
   // 1. Clean up the URL logic to prevent double slashes or missing slashes
-  const backendRoot = "https://shortener-1h7u.onrender.com";giu
+  const backendRoot = "https://shortener-1h7u.onrender.com";
   //import.meta.env.VITE_API_BASE_URL || ""; 
   
   // This regex removes "/api" and any trailing slashes safely
