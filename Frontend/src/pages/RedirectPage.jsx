@@ -10,7 +10,8 @@ const RedirectPage = () => {
   const effectRan = useRef(false);
 
   // 1. Clean up the URL logic to prevent double slashes or missing slashes
-  const backendRoot = import.meta.env.VITE_API_BASE_URL || ""; 
+  const backendRoot =  "hello"
+  //import.meta.env.VITE_API_BASE_URL || ""; 
   
   // This regex removes "/api" and any trailing slashes safely
 //  const backendRoot = apiBase.replace(/\/api\/?$/, "");
