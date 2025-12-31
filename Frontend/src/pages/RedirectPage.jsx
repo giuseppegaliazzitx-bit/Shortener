@@ -10,10 +10,10 @@ const RedirectPage = () => {
   const effectRan = useRef(false);
 
   // 1. Clean up the URL logic to prevent double slashes or missing slashes
-  const apiBase = import.meta.env.VITE_API_BASE_URL || ""; 
+  const backendRoot = import.meta.env.VITE_API_BASE_URL || ""; 
   
   // This regex removes "/api" and any trailing slashes safely
-  const backendRoot = apiBase.replace(/\/api\/?$/, "");
+//  const backendRoot = apiBase.replace(/\/api\/?$/, "");
 
   useEffect(() => {
     // Prevent double execution in React Strict Mode
