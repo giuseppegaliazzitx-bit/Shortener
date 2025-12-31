@@ -10,8 +10,8 @@ const RedirectPage = () => {
   const effectRan = useRef(false);
 
   const apiBase = import.meta.env.VITE_API_BASE_URL; 
-// Strip the "/api" from the end so it points to the root of your backend
-const backendRoot = apiBase.replace('/api', '');
+  // Strip the "/api" from the end so it points to the root of your backend
+  const backendRoot = apiBase.replace('/api', '');
 
   useEffect(() => {
     if (!linkId) return;
