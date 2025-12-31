@@ -14,11 +14,11 @@ const App = () => {
     <Router>
       <Routes>
         <Route path='/' element={<HomePage />} />
-        <Route path='/:linkId' element={<RedirectPage />} />
         <Route path='/login' element={<LoginPage />} /> 
         <Route path='/register' element={<CreateAccountPage />} />
         <Route path='/dashboard' element={<DashboardPage />} />
         <Route path='/profile' element={<ProfilePage />} />
+        <Route path='/:linkId' element={<RedirectPage />} />
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
     </Router>
