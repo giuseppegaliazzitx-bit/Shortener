@@ -58,7 +58,8 @@ const LoginPage = () => {
       localStorage.setItem("authToken", data.token);
       
       //redirect to page
-      window.location.replace(`${APP_BASE_URL}/dashboard`);
+      //window.location.replace(`${APP_BASE_URL}/dashboard`);
+      navigate("/dashboard"); 
 
     }catch(err){
       console.error(err);

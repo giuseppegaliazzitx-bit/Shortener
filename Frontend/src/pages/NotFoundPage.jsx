@@ -3,7 +3,7 @@ import React from 'react'
 
 const NotFoundPage = () => {
   return (
-    <div>NotFoundPage wasdwasdwa</div>
+    <div>NotFoundPage 404 PAGE</div>
   )
 }
 
