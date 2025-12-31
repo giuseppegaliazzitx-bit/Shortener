@@ -9,7 +9,7 @@ using Backend.Geo;
 namespace MyApi.Controller;
 
 [ApiController]
-[Route("")]
+//[Route("")]
 public class RedirectionController : ControllerBase
 {
     private readonly AppDbContext _db;
@@ -24,9 +24,10 @@ public class RedirectionController : ControllerBase
     }
     
     // GET /{slug}
-    [HttpGet("{slug}")]
+    [HttpGet("/{slug}")]
     public async Task<IActionResult> RedirectToOriginalUrl(string slug)
     {
+        Console.WriteLine($"---> Redirection triggered for slug: {slug}");
         // 1. Find link (Exact match)
         var link = await _db.Links.FirstOrDefaultAsync(l => l.Slug == slug);
 
